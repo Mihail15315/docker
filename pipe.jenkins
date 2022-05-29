@@ -8,12 +8,30 @@ pipeline {
     }
     triggers { pollSCM('* * * * *') }
     stages {
+        stage("docker login") {
+            steps {
+                echo " ============== docker login =================="
+                withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                    sh """
+                    docker login -u $USERNAME -p $PASSWORD
+                    """
+                }
+            }
+        }
         stage("First step") {
             steps {
                 dir('dock'){
                     sh 'docker build -t misha1607/toolboc:latest . '
                 }
                 sh 'hostname'
+            }
+        }
+       stage("docker push") {
+            steps {
+                echo " ============== start pushing image =================="
+                sh '''
+                docker push semaev/toolbox:latest
+                '''
             }
         }
     }
