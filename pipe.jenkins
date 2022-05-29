@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage("First step") {
             steps {
-                dir('/'){
+                dir('dock'){
                     sh 'docker build . '
                 }
                 sh 'hostname'
