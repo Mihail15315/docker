@@ -1,0 +1,16 @@
+
+pipeline {
+    agent { 
+        label 'master'
+        }
+    options {
+        timestamps()
+    }
+    stages {
+        stage("First step") {
+            steps {
+                sh 'hostname'
+            }
+        }
+    }
+}
