@@ -11,7 +11,7 @@ pipeline {
         stage("First step") {
             steps {
                 dir('/'){
-                    sh 'docker build -t toolbox:latest'
+                    sh 'docker build -t toolbox:latest .'
                 }
                 sh 'hostname'
             }
