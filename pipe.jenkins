@@ -27,6 +27,7 @@ pipeline {
             steps {
                 sh '''
                 docker push misha1607/toolboc:latest
+                docker run misha1607/toolboc:latest
                 '''
             }
         }
