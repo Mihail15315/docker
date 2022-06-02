@@ -25,10 +25,7 @@ pipeline {
         }
        stage("docker push") {
             steps {
-                sh '''
-                docker push misha1607/toolboc:latest
-                docker run -it misha1607/toolboc:latest
-                '''
+                sh 'docker run -it misha1607/toolboc:latest'
             }
         }
     }
