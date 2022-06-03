@@ -34,7 +34,7 @@ pipeline {
        stage("pull") {
         steps {
             sh 'ssh root@ub2 \'docker pull misha1607/toolboc:latest\''
-            sh 'ssh root@ub2 \'docker run misha1607/toolboc:latest\''
+            sh 'ssh root@ub2 \'docker run -it misha1607/toolboc:latest\''
             }
         }
     }
