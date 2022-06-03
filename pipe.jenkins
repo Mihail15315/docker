@@ -27,7 +27,9 @@ pipeline {
             steps {
                 sh '''
                 docker push misha1607/toolboc:latest
-                ssh root@ub2 \'hostname\' 
+                ssh root@ub2 
+                docker pull misha1607/toolboc:latest
+                docker run misha1607/toolboc:latest
                 '''
             }
         }
