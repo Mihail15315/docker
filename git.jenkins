@@ -8,7 +8,7 @@ pipeline {
             steps {
               
                 sh 'pwd'
-                build job: 'd' ,parametrs: [name:'GIT','sperma']
+                build job: 'd' ,parametrs: [string(name:'GIT','sperma')]
                 }
             }
         }
